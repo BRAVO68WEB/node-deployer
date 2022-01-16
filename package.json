@@ -2,6 +2,7 @@
   "name": "node-deployer",
   "version": "1.0.0",
   "main": "src",
+  "description": "A DevOps CD tool build to auto pull changes from git repository into a remote server",
   "private": true,
   "author": {
     "name": "BRAVO68WEB",
