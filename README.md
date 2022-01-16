@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Twitter: bravo68web](https://img.shields.io/twitter/follow/bravo68web.svg?style=social)](https://twitter.com/bravo68web)
 
-> A DevOps CD tool build to auto pull changes from git repository into a remote server&#34;
+> A DevOps CD tool build to auto pull changes from git repository into a remote server
 
 ## Install
 
