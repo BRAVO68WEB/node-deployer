@@ -1,8 +1,17 @@
 {
   "name": "node-deployer",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "src",
   "private": true,
+  "author": {
+    "name": "BRAVO68WEB",
+    "email": "me@bravo68web.me",
+    "url": "https://bravo68web.me"
+  },
+  "git": {
+    "url": "https://git.itsmebravo.dev/bravo68web/node-deployer"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "node .",
     "test": "jest",
@@ -16,7 +25,9 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "setupFilesAfterEnv": ["<rootDir>/test/setup.js"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/setup.js"
+    ]
   },
   "devDependencies": {
     "apidoc": "^0.20.0",
