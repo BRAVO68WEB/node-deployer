@@ -27,6 +27,11 @@ MONGODB_URI=mongodb://xxx.xxx.xxx.xxx/node-deployer
 yarn run prod
 ```
 
+## Things to keep in mind while using 
+
+* Must use nodemon for the changes to automatically  reload the server
+* pm2 is recommended for production
+
 ## Author
 
 👤 **Bravo68web**

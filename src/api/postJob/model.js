@@ -1,30 +1,43 @@
 import mongoose, { Schema } from 'mongoose'
 
-const postJobSchema = new Schema({
-  gitUrl: {
-    type: String
+const postJobSchema = new Schema(
+  {
+    gitUrl: {
+      type: String,
+    },
+    deployLocation: {
+      type: String,
+    },
+    deploySys: {
+      type: String,
+    },
+    active: {
+      type: Boolean,
+      default: false,
+    },
+    gitBranch: {
+      type: String,
+      default: "master",
+    },
+    buildRequired: {
+      type: Boolean,
+      default: false,
+    },
+    removeNodeModules: {
+      type: Boolean,
+      default: false,
+    },
   },
-  deployLocation: {
-    type: String
-  },
-  deploySys: {
-    type: String
-  },
-  active: {
-    type: Boolean,
-    default: false
-  },
-  gitBranch: {
-    type: String,
-    default: 'master'
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+      transform: (obj, ret) => {
+        delete ret._id;
+      },
+    },
   }
-}, {
-  timestamps: true,
-  toJSON: {
-    virtuals: true,
-    transform: (obj, ret) => { delete ret._id }
-  }
-})
+);
 
 postJobSchema.methods = {
   view (full) {

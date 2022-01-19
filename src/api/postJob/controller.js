@@ -99,17 +99,26 @@ export const deploy = ({
     .then(notFound(res))
     .then((postJob) => {
       if (postJob) {
-        exec(`cd ${postJob.deployLocation} && git fetch --all && git reset --hard origin/${postJob.gitBranch} && git pull `, (error, stdout, stderr) => {
-          if (error) {
-            console.log(`error: ${error.message}`);
-            return;
+        exec(
+          `cd ${
+            postJob.deployLocation
+          } && git fetch --all && git reset --hard origin/${
+            postJob.gitBranch
+          } && git pull ${
+            postJob.buildRequired ? "&& rm -rf node_modules " : ""
+          } && yarn ${postJob.buildRequired ? "&& yarn build " : ""}`,
+          (error, stdout, stderr) => {
+            if (error) {
+              console.log(`error: ${error.message}`);
+              return;
+            }
+            if (stderr) {
+              console.log(`stderr: ${stderr}`);
+              return;
+            }
+            console.log(`stdout: ${stdout}`);
           }
-          if (stderr) {
-            console.log(`stderr: ${stderr}`);
-            return;
-          }
-          console.log(`stdout: ${stdout}`);
-        });
+        );
         res.sendStatus(200);
       }
     })
